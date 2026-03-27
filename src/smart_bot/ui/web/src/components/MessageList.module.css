@@ -1,0 +1,153 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 16px;
+  overflow-y: auto;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  box-sizing: border-box;
+  user-select: text;
+}
+
+.userRow {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.userBubble {
+  background: #4a6cf7;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 16px 16px 4px 16px;
+  max-width: 85%;
+  word-break: break-word;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.assistantRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.assistantBubble {
+  background: #f5f5f5;
+  color: #333;
+  padding: 10px 14px;
+  border-radius: 16px 16px 16px 4px;
+  max-width: 85%;
+  word-break: break-word;
+  line-height: 1.6;
+  font-size: 13px;
+  border: 1px solid #eee;
+}
+
+.thinkingBlock {
+  margin-bottom: 6px;
+}
+
+.thinkingBlock summary {
+  cursor: pointer;
+  font-size: 11px;
+  color: #999;
+  user-select: none;
+}
+
+.thinkingText {
+  font-size: 11px;
+  color: #aaa;
+  font-style: italic;
+  margin-top: 4px;
+  padding-left: 8px;
+  border-left: 2px solid #ddd;
+  white-space: pre-wrap;
+  line-height: 1.5;
+}
+
+.answerText {
+  white-space: pre-wrap;
+}
+
+.cursor {
+  animation: blink 0.8s infinite;
+  color: #4a6cf7;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.toolRow {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.toolCard {
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 6px 12px;
+  max-width: 90%;
+  font-size: 11px;
+}
+
+.toolHeader {
+  color: #888;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.toolHeader::-webkit-details-marker {
+  display: none;
+}
+
+.toolSubItem {
+  margin-top: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #eee;
+}
+
+.toolSubItem summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.toolSubItem summary::-webkit-details-marker {
+  display: none;
+}
+
+.toolSubName {
+  font-size: 10px;
+  font-weight: 600;
+  color: #999;
+}
+
+.toolArgs {
+  background: #f0f0f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #666;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 100px;
+  overflow-y: auto;
+  margin-bottom: 4px;
+}
+
+.toolResult {
+  background: #f0fff0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  color: #4a8;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 160px;
+  overflow-y: auto;
+}

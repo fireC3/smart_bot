@@ -1,0 +1,26 @@
+
+
+services:
+  agent-sandbox:
+    build:
+      context: ./python
+    container_name: agent-sandbox
+    restart: unless-stopped
+    volumes:
+      - /home/llty/sandbox_workspace:/sandbox/workspace:z
+    tmpfs:
+      - /tmp
+    mem_limit: 4G
+    cpus: 4
+    network_mode: host
+
+  browser-sandbox:
+    build:
+      context: ./browser
+    container_name: browser-sandbox
+    restart: unless-stopped
+    tmpfs:
+      - /tmp
+    mem_limit: 4G
+    cpus: 2
+    network_mode: host

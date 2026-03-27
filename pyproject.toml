@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smart-bot"
+version = "0.1.0"
+description = "A smart bot system with AI agent orchestration capabilities"
+readme = "README.md"
+authors = [
+    { name = "llty", email = "your.email@example.com" }
+]
+license = { text = "MIT" }
+keywords = ["ai", "bot", "fastapi", "openai", "agent"]
+
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.104.1",
+    "uvicorn[standard]>=0.24.0",
+    "httpx>=0.27.0",
+    "markitdown>=0.1.1",
+    "socksio>=1.0.0",
+    "fake-headers>=1.0.2",
+    "openai>=1.68.0",
+    "ollama>=0.1.0",
+    "pydantic>=2.5.0",
+    "toml>=0.10.2",
+    "typing-extensions>=4.8.0",
+    "uuid-backport==0.1.2",
+    "playwright>=1.52.0",
+]
+
+[project.scripts]
+smart-bot = "smart_bot.main:main"
+
+
+[tool.setuptools]
+packages = ["smart_bot"]
+package-dir = { "" = "src" }
+include-package-data = false
+
+[tool.setuptools.package-data]
+smart_bot = [
+    "skill/**/*",
+    "sandbox/**/*",
+    "ui/web/**/*",
+    "tools/**/*",
+]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+    "ignore:Exception ignored in.*BaseSubprocessTransport.*:pytest.PytestUnraisableExceptionWarning",
+]
+

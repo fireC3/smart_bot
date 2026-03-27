@@ -1,0 +1,824 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 12px;
+  width: 700px;
+  height: 520px;
+  display: flex;
+  color: #333;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 170px;
+  border-right: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  flex-shrink: 0;
+  background: #fafafa;
+}
+
+.sidebarTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0 16px;
+  margin-bottom: 12px;
+}
+
+.navItem {
+  background: none;
+  border: none;
+  color: #666;
+  padding: 9px 16px;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.navItem:hover {
+  background: #f0f0f0;
+}
+
+.navActive {
+  color: #333;
+  background: #f0f0f0;
+  font-weight: 600;
+  border-right: 2px solid #4a6cf7;
+}
+
+.sidebarFooter {
+  margin-top: auto;
+  padding: 12px 16px;
+}
+
+.closeBtn {
+  background: #f0f0f0;
+  border: none;
+  color: #666;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.closeBtn:hover {
+  background: #e0e0e0;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.contentInner {
+  padding: 24px;
+  height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.contentInner h3 {
+  margin: 0 0 4px;
+  font-size: 18px;
+}
+
+.hint {
+  color: #999;
+  font-size: 13px;
+  margin: 0 0 20px;
+  line-height: 1.5;
+}
+
+/* Card Grid */
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.squareCard {
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  border: 1px solid #eee;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.squareCard:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  border-color: #d0d0d0;
+}
+
+.cardIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f0f4ff;
+  color: #4a6cf7;
+  font-size: 22px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardLabel {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.cardState {
+  font-size: 11px;
+  color: #999;
+}
+
+/* Add card */
+.addCard {
+  border-style: dashed;
+  background: #fafbff;
+  cursor: pointer;
+  border-color: #ddd;
+}
+
+.addCard:hover {
+  border-color: #4a6cf7;
+  background: #f6f8ff;
+}
+
+.addIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: #f0f4ff;
+  color: #4a6cf7;
+  font-size: 28px;
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Config overlay panel - covers content area */
+.configPanel {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.panelHeader {
+  padding: 16px 24px 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.panelHeader h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.backBtn {
+  background: none;
+  border: none;
+  color: #4a6cf7;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.backBtn:hover {
+  color: #3a5ce5;
+}
+
+.panelBody {
+  padding: 20px 24px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.panelScroll {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.panelScrollOverflow {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 12px;
+  min-height: 0;
+}
+
+.panelFooter {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  padding: 12px 24px;
+  border-top: 1px solid #eee;
+  background: #fff;
+  flex-shrink: 0;
+}
+
+/* Form Fields */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field label {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+}
+
+.field input,
+.field select {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #333;
+  font-size: 13px;
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #4a6cf7;
+}
+
+.fieldRow {
+  display: flex;
+  gap: 10px;
+}
+
+.fieldRow .field {
+  flex: 1;
+}
+
+/* API Key */
+.apikeySection {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 12px;
+}
+
+.apikeySection > label {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.apikeySection input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #333;
+  font-size: 13px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.apikeySection input:focus {
+  border-color: #4a6cf7;
+}
+
+.apikeyMasked {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.apikeyMaskedText {
+  flex: 1;
+  background: #f5f5f5;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 7px 12px;
+  font-size: 13px;
+  color: #666;
+  font-family: monospace;
+  user-select: all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.iconBtn {
+  background: none;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 5px;
+  cursor: pointer;
+  line-height: 0;
+  flex-shrink: 0;
+  color: #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconBtn:hover {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.apikeyInput {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.apikeyInput input {
+  flex: 1;
+}
+
+/* Disabled input */
+.disabledInput {
+  background: #f5f5f5 !important;
+  color: #999 !important;
+}
+
+.fieldHint {
+  font-size: 10px;
+  color: #bbb;
+  margin-top: -2px;
+}
+
+/* Panel buttons */
+.panelActions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.testBtn,
+.fetchBtn,
+.saveBtn,
+.cancelBtn,
+.deleteBtn {
+  border: none;
+  border-radius: 6px;
+  padding: 7px 14px;
+  font-size: 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.testBtn {
+  background: #e8f0fe;
+  color: #4a6cf7;
+}
+
+.testBtn:hover:not(:disabled) {
+  background: #d0e0fd;
+}
+
+.testBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.fetchBtn {
+  background: #f0fff0;
+  color: #3a8;
+}
+
+.fetchBtn:hover:not(:disabled) {
+  background: #d8f8d8;
+}
+
+.fetchBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.saveBtn {
+  background: #4a6cf7;
+  color: #fff;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background: #3a5ce5;
+}
+
+.saveBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cancelBtn {
+  background: #f0f0f0;
+  color: #666;
+}
+
+.cancelBtn:hover {
+  background: #e0e0e0;
+}
+
+.deleteBtn {
+  background: #fff;
+  color: #c44;
+  border: 1px solid #fdd;
+}
+
+.deleteBtn:hover {
+  background: #fff5f5;
+}
+
+/* Result box */
+.resultBox {
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+
+.resultSuccess {
+  background: #f0fff0;
+  color: #3a8;
+}
+
+.resultFail {
+  background: #fff0f0;
+  color: #c44;
+}
+
+/* Model section */
+.modelSection {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 10px;
+}
+
+.modelSectionTitle {
+  font-size: 11px;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+/* Model tags */
+.modelList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.modelTag {
+  background: #f0f4ff;
+  color: #4a6cf7;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ======== Models tab ======== */
+.section {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.section h4 {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: #666;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.tabContent h4 {
+  margin: 16px 0 8px;
+  font-size: 14px;
+  color: #666;
+}
+
+.modelsTab select {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #333;
+  font-size: 13px;
+  width: 100%;
+  max-width: 300px;
+  outline: none;
+}
+
+.modelsTab select:focus {
+  border-color: #4a6cf7;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+.section .field {
+  margin-bottom: 8px;
+}
+
+.section .field input {
+  max-width: 300px;
+}
+
+.agentRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f8f8f8;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.agentLabel {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.agentDesc {
+  color: #999;
+  font-size: 12px;
+}
+
+/* Agent cards (models tab) */
+.agentCards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.agentCard {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.agentCard:hover {
+  border-color: #4a6cf7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.agentCardIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: #f0f4ff;
+  color: #4a6cf7;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agentCardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.agentCardName {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.agentCardAssignment {
+  font-size: 12px;
+  color: #999;
+}
+
+.agentCardArrow {
+  color: #bbb;
+  font-size: 16px;
+}
+
+.searchInput {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  color: #999;
+}
+
+.searchInput input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  color: #333;
+  background: transparent;
+}
+
+.searchInput input::placeholder {
+  color: #bbb;
+}
+
+.searchInput:focus-within {
+  border-color: #4a6cf7;
+}
+
+/* Model tag layout */
+.modelOption {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: monospace;
+  color: #666;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.modelOption:hover {
+  border-color: #4a6cf7;
+  color: #333;
+}
+
+.modelOptionActive {
+  border-color: #4a6cf7;
+  background: #f0f4ff;
+  color: #4a6cf7;
+}
+
+.modelOptionName {
+  /* contained in modelOption */
+}
+
+.modelOptionCheck {
+  color: #4a6cf7;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Save button on models tab */
+.saveRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.contentInner .saveBtn {
+  margin-top: 0;
+  padding: 8px 20px;
+  font-size: 13px;
+}
+
+.msgOk {
+  font-size: 12px;
+  color: #3a8;
+}
+
+.msgErr {
+  font-size: 12px;
+  color: #c44;
+}
+
+/* Platform selector cards */
+.platformGrid {
+  display: flex;
+  gap: 10px;
+}
+
+.platformOption {
+  padding: 10px 18px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.platformOption:hover {
+  border-color: #4a6cf7;
+}
+
+.platformActive {
+  border-color: #4a6cf7;
+  background: #f0f4ff;
+}
+
+.platformOptionIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #f0f4ff;
+  color: #4a6cf7;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.platformOptionLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #333;
+}
+
+.modelScroll {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  margin-top: 8px;
+}
+
+/* Model tags */
+.modelGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.modelRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.modelRowLabel {
+  width: 120px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.modelRow select {
+  flex: 1;
+  max-width: 280px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: #333;
+  font-size: 13px;
+  outline: none;
+}
+
+.modelRow select:focus {
+  border-color: #4a6cf7;
+}

@@ -1,0 +1,67 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Hoshino_Ai.moc3",
+		"Textures": [
+			"Hoshino_Ai.8192/texture_00.png",
+			"Hoshino_Ai.8192/texture_01.png"
+		],
+		"Physics": "Hoshino_Ai.physics3.json",
+		"DisplayInfo": "Hoshino_Ai.cdi3.json",
+		"Expressions": [
+			{
+				"Name": "xinxin",
+				"File": "xinxin.exp3.json"
+			},
+			{
+				"Name": "ga",
+				"File": "ga.exp3.json"
+			},
+			{
+				"Name": "sq",
+				"File": "sq.exp3.json"
+			},
+			{
+				"Name": "ku",
+				"File": "ku.exp3.json"
+			},
+			{
+				"Name": "zs1",
+				"File": "zs1.exp3.json"
+			},
+			{
+				"Name": "zs2",
+				"File": "zs2.exp3.json"
+			},
+			{
+				"Name": "st",
+				"File": "st.exp3.json"
+			}
+		],
+		"Motions": {
+			"donghua": [
+				{
+					"File": "donghua.motion3.json"
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": [
+				"ParamMouthOpenY"
+			]
+		}
+	],
+	"HitAreas": []
+}

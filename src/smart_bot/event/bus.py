@@ -19,11 +19,24 @@ class EventBus:
         except (ValueError, KeyError):
             pass
 
-    def emit(self, event: str, data: Any = None) -> None:
+    async def _safe_call(
+        self,
+        event: str,
+        cb: Callable[[Any], Awaitable[None]],
+        data: Any,
+        on_error: Callable[[str, Exception], None] | None = None,
+    ) -> None:
+        try:
+            await cb(data)
+        except Exception as exc:
+            if on_error:
+                on_error(event, exc)
+
+    def emit(self, event: str, data: Any = None, on_error: Callable[[str, Exception], None] | None = None) -> None:
         import asyncio
         try:
             loop = asyncio.get_running_loop()
         except RuntimeError:
             return
         for cb in self._subscribers.get(event, []):
-            loop.create_task(cb(data))
+            loop.create_task(self._safe_call(event, cb, data, on_error))

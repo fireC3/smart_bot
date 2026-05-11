@@ -16,7 +16,7 @@ from smart_bot.interface import (
     LLM, PlatformConfig, ToolExecuteContext, ToolPermission,
 )
 from smart_bot.platforms import PROVIDER_MODULE, PROVIDER_CLASS
-from smart_bot.prompts import build_base_system_prompt, EnvironmentData, get_environment_info, build_environment_prompt
+from smart_bot.prompts import build_base_system_prompt, get_environment_info, build_environment_prompt
 from smart_bot.state import AppState
 from smart_bot.config import get_data_path
 from smart_bot.skill import SkillManager
